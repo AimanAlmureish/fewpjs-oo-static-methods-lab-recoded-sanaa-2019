@@ -6,56 +6,15 @@ class Formatter {
   }
   
   static sanitize(string){
-      let splitted = string.split("")
-        splitted.forEach(element => {
-            // console.log(element);
-
-        })
-
-
-        splitted.find(item => {
-            if (item === "@") {
-                console.log("cool");
-                console.log(splitted.indexOf(item));
-                splitted.splice(splitted.indexOf(item), 1)
-                console.log(splitted);
-
-            }
-        })
-
-        splitted.find(item => {
-            if (item === "#") {
-                console.log("cool");
-                // console.log(splitted.indexOf(item));
-                splitted.splice(splitted.indexOf(item), 1)
-                    // console.log(splitted);
-
-            }
-        })
-        
-                splitted.find(item => {
-            if (item === "$") {
-                console.log("cool");
-                // console.log(splitted.indexOf(item));
-                splitted.splice(splitted.indexOf(item), 1)
-                    // console.log(splitted);
-
-            }
-        })
-
-        // console.log(splitted);
-        let newStr = "";
-        splitted.forEach(item => {
-            newStr += item;
-
-
-        })
-
-
-        console.log(newStr);
-        
-        return newStr
-
+   let s = string.split(" ")
+ let filtering = s.map(item => {
+   if(item == "a" || item == "an" || item == "but" || item == "of" || item == "and" || item == "for" || item == "at" || item == "by" || item == "from" || item=="the"){
+     if(s[0]==item){return item.charAt(0).toUpperCase()+item.slice(1)}
+     else{return item}
+   }else {return item.charAt(0).toUpperCase()+ item.slice(1)}
+ })
+ return filtering.join(" ")
+ }
   }
   
   static titleize(string){
